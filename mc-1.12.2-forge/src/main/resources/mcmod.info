@@ -1,0 +1,16 @@
+[
+{
+  "modid": "${modid}",
+  "name": "${modName}",
+  "description": "Game State Integration server designed for Aurora (but could be used by other applications).",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://gitlab.com/aurora-gsi-minecraft",
+  "updateUrl": "",
+  "credits": "",
+  "logoFile": "logo.png",
+  "screenshots": [],
+  "dependencies": [],
+  "authorList": ${authorList}
+}
+]
