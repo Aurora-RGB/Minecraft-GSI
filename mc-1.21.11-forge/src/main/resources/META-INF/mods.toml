@@ -1,0 +1,35 @@
+modLoader="javafml" #mandatory
+# A version range to match for said mod loader - for regular FML @Mod it will be the forge version
+loaderVersion="${loader_version_range}" #mandatory
+license="All rights reserved"
+[[mods]] #mandatory
+# The modid of the mod
+modId="${modid}" #mandatory
+# The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
+version="${version}" #mandatory
+# A display name for the mod
+displayName="${modName}" #mandatory
+# A URL for the "homepage" for this mod, displayed in the mod UI
+displayURL="https://github.com/antonpup/Aurora" #optional
+# A file name (in the root of the mod JAR) containing a logo for display
+#logoFile="aurora-gsi.png" #optional
+# A text field displayed in the mod UI
+credits="Thanks for this example mod goes to Java" #optional
+# A text field displayed in the mod UI
+authors="Aytackydln, Wibble199 (main fork)" #optional
+# The description text for the mod (multi line!) (#mandatory)
+description='''
+Game State Integration server designed for Aurora (but could be used by other applications).
+'''
+[[dependencies."${modid}"]] #optional
+modId="forge" #mandatory
+mandatory=true #mandatory
+versionRange="[40,)" #mandatory
+ordering="NONE"
+side="BOTH"
+[[dependencies."${modid}"]]
+modId="minecraft"
+mandatory=true
+versionRange="${minecraft_version_range}"
+ordering="NONE"
+side="BOTH"
