@@ -5,15 +5,19 @@ subprojects {
     val modUrl: String by project
     val authorList: String by project
     val mcVersion: String? by project
+    val minecraft_version: String? by project
     val modPlatform: String? by project
+    val loader_version: String? by project
     val loader_version_range: String? by project
     val minecraft_version_range: String? by project
+
+    val destinationDirectoryVal = file("${rootProject.projectDir}/output/jars")
 
     // set archive name to {modid}-{mcVersion}.jar
     tasks.withType<Jar>().configureEach {
         archiveBaseName.set(modId)
         archiveVersion.set("$mcVersion-$modPlatform")
-        destinationDirectory.set(file("${rootProject.projectDir}/output/jars"))
+        destinationDirectory.set(destinationDirectoryVal)
     }
 
     tasks.withType<ProcessResources>().configureEach {
@@ -23,6 +27,8 @@ subprojects {
         inputs.property("modUrl", modUrl)
         inputs.property("authorList", authorList)
         inputs.property("mcVersion", mcVersion)
+        minecraft_version?.let { inputs.property("minecraft_version", it) }
+        loader_version?.let { inputs.property("loader_version", it) }
         loader_version_range?.let { inputs.property("loader_version_range", it) }
         minecraft_version_range?.let { inputs.property("minecraft_version_range", it) }
 
