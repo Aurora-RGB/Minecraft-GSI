@@ -9,14 +9,16 @@ val mcVersion: String by project
 val modPlatform: String by project
 val modId: String by project
 
-base.archivesName = "$modId-$mcVersion-$modPlatform"
-
 repositories {
     mavenCentral()
 }
 
 kotlin {
     jvmToolchain(8)
+}
+
+tasks.withType<JavaCompile>().configureEach {
+    options.release.set(8)
 }
 
 dependencies {
@@ -51,8 +53,8 @@ tasks.processResources {
     }
 }
 
-tasks.withType<JavaCompile>().configureEach {
-    options.release.set(8)
+tasks.named<net.fabricmc.loom.task.RemapJarTask>("remapJar") {
+    destinationDirectory.set(file("${rootProject.projectDir}/output/jars"))
 }
 
 
