@@ -30,8 +30,7 @@ class GameStateUpdater(
 
             postJson(Url, json)
         } catch (e: Error) {
-            logFunc.accept("Failed to send game state update: ${e.message}")
-            e.printStackTrace()
+            logFunc.accept("Failed to send game state update: ${e.message}\n${e.stackTraceToString()}")
             Thread.sleep(6000)
         }
     }
