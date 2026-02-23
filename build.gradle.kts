@@ -10,6 +10,7 @@ subprojects {
     val loader_version: String? by project
     val loader_version_range: String? by project
     val minecraft_version_range: String? by project
+    val forge_version_range: String? by project
 
     val destinationDirectoryVal = file("${rootProject.projectDir}/output/jars")
 
@@ -31,6 +32,7 @@ subprojects {
         loader_version?.let { inputs.property("loader_version", it) }
         loader_version_range?.let { inputs.property("loader_version_range", it) }
         minecraft_version_range?.let { inputs.property("minecraft_version_range", it) }
+        forge_version_range?.let { inputs.property("forge_version_range", it) }
 
         filesMatching(listOf("**/mcmod.info", "**/mods.toml", "**/pack.mcmeta", "**/fabric.mod.json")) {
             expand(inputs.properties)
